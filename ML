@@ -1,0 +1,22 @@
+python
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+# Load the dataset
+data = pd.read_csv('house_data.csv')
+
+# Split the data into features (X) and target variable (y)
+X = data[['bedrooms', 'bathrooms', 'sqft', 'age']]
+y = data['price']
+
+# Create an instance of Linear Regression model
+model = LinearRegression()
+
+# Fit the model to the data
+model.fit(X, y)
+
+# Predict the house price for a new data point
+new_data = [[3, 2, 1500, 10]]  # Example data with 3 bedrooms, 2 bathrooms, 1500 sqft, and 10 years old
+predicted_price = model.predict(new_data)
+
+print("Predicted house price:", predicted_price)
